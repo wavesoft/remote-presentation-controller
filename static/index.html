@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mesosphere">
+    <title>Remote Meeting Controller</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    #main {
+      margin-top: 5vh;
+    }
+
+    .btn-big {
+      width: 100%;
+      height: 60vh;
+    }
+
+    .btn-small {
+      width: 100%;
+      height: 20vh;
+      margin-top: 5vh;
+    }
+    </style>
+  </head>
+
+  <body>
+    <div id="main" class="container">
+      <button id="next" class="btn btn-primary btn-big" type="button">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        Next Slide
+      </button>
+      <button id="prev" class="btn btn-default btn-small" type="button">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        Previous Slide
+      </button>
+    </div>
+
+    <script type="text/javascript">
+      document.querySelector('#next').addEventListener('click', () => {
+        fetch('/navigate?direction=next')
+      });
+      document.querySelector('#prev').addEventListener('click', () => {
+        fetch('/navigate?direction=prev')
+      });
+    </script>
+  </body>
+</html>
